@@ -4,7 +4,8 @@
   "info": {
     "singularName": "addon",
     "pluralName": "addons",
-    "displayName": "Addon"
+    "displayName": "Addon",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -33,11 +34,29 @@
       "type": "decimal",
       "required": true
     },
-    "product": {
+    "Product": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::product.product",
-      "inversedBy": "addons"
+      "inversedBy": "Addons"
+    },
+    "Sku": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "required": true,
+      "targetField": "Name"
+    },
+    "Slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid"
     }
   }
 }

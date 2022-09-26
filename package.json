@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "description": "A Lovely Flame Content Managament System with Strapi",
   "scripts": {
-    "develop": "strapi develop",
+    "develop": "cross-env NODE_ENV=development ENV_PATH=C:/Users/GT101/OneDrive/Documents/Programming/git/a-lovely-flame-cms/.env.development strapi develop",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
@@ -17,6 +17,7 @@
     "@strapi/plugin-i18n": "4.3.4",
     "@strapi/plugin-users-permissions": "4.3.4",
     "@strapi/strapi": "4.3.4",
+    "better-sqlite3": "^7.6.2",
     "pg": "^8.8.0",
     "pg-connection-string": "^2.5.0"
   },
@@ -30,5 +31,8 @@
     "node": ">=12.x.x <=16.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }

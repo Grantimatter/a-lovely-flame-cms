@@ -1,8 +1,8 @@
 {
-  "name": "cms",
+  "name": "a-lovely-flame-cms",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "A Lovely Flame Content Managament System with Strapi",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",

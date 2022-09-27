@@ -74,12 +74,6 @@
       "type": "uid",
       "targetField": "Title"
     },
-    "Addons": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::addon.addon",
-      "mappedBy": "Product"
-    },
     "Slug": {
       "pluginOptions": {
         "i18n": {
@@ -110,6 +104,11 @@
       },
       "type": "richtext",
       "required": true
+    },
+    "Addons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
     }
   }
 }

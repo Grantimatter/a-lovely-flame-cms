@@ -50,7 +50,7 @@
         }
       }
     },
-    "Description": {
+    "Usage": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -89,17 +89,26 @@
       "type": "uid"
     },
     "Thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "videos"
       ],
-      "type": "media",
-      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "WhyLove": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
+      "type": "richtext",
       "required": true
     }
   }

@@ -78,6 +78,14 @@
         }
       },
       "type": "richtext"
+    },
+    "Summary": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
     }
   }
 }

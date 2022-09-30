@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_types",
+  "info": {
+    "singularName": "product-type",
+    "pluralName": "product-types",
+    "displayName": "ProductType",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "unique": true,
+      "default": "productType",
+      "required": true
+    },
+    "Plural": {
+      "type": "string",
+      "required": true
+    },
+    "stock": {
+      "type": "integer",
+      "default": 0,
+      "required": false
+    },
+    "WhyLove": {
+      "type": "richtext",
+      "required": true
+    },
+    "Usage": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

@@ -34,22 +34,6 @@
       "type": "decimal",
       "required": true
     },
-    "Media": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "Usage": {
       "pluginOptions": {
         "i18n": {
@@ -64,23 +48,6 @@
       "relation": "manyToMany",
       "target": "api::fragrance.fragrance",
       "inversedBy": "products"
-    },
-    "sku": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "uid",
-      "targetField": "Title"
-    },
-    "Slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "uid"
     },
     "Thumbnail": {
       "type": "media",
@@ -110,15 +77,6 @@
       "relation": "oneToMany",
       "target": "api::product.product"
     },
-    "Plural": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "line_item": {
       "pluginOptions": {
         "i18n": {
@@ -128,6 +86,23 @@
       "type": "string",
       "unique": true,
       "required": true
+    },
+    "Slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "default": "/products"
+    },
+    "product_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-type.product-type",
+      "inversedBy": "products"
     }
   }
 }

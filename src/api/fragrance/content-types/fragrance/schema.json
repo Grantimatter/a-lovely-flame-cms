@@ -41,7 +41,7 @@
         }
       }
     },
-    "SKU": {
+    "Sku": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -50,15 +50,6 @@
       "type": "string",
       "required": true,
       "unique": true
-    },
-    "SKUID": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "uid",
-      "targetField": "SKU"
     },
     "products": {
       "type": "relation",

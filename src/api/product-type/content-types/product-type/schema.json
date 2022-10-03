@@ -30,6 +30,9 @@
     },
     "SortOrder": {
       "type": "integer"
+    },
+    "Ingredients": {
+      "type": "richtext"
     }
   }
 }

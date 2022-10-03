@@ -51,13 +51,7 @@
       "required": true,
       "unique": true
     },
-    "products": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "mappedBy": "Fragrances"
-    },
-    "scent_notes": {
+    "ScentNotes": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::scent-note.scent-note"
@@ -77,6 +71,12 @@
         }
       },
       "type": "text"
+    },
+    "ProductTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product-type.product-type",
+      "mappedBy": "Fragrances"
     }
   }
 }

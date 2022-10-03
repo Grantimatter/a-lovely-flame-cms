@@ -25,30 +25,6 @@
       "type": "string",
       "required": true
     },
-    "Price": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "decimal",
-      "required": true
-    },
-    "Usage": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext",
-      "required": true
-    },
-    "Fragrances": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::fragrance.fragrance",
-      "inversedBy": "products"
-    },
     "Thumbnail": {
       "type": "media",
       "multiple": false,
@@ -63,21 +39,7 @@
         }
       }
     },
-    "WhyLove": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "richtext",
-      "required": true
-    },
-    "Addons": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product"
-    },
-    "line_item": {
+    "LineItem": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -98,11 +60,22 @@
       "unique": true,
       "default": "/products"
     },
-    "product_type": {
+    "ProductType": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::product-type.product-type",
-      "inversedBy": "products"
+      "inversedBy": "Products"
+    },
+    "ParentProduct": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-type.product-type",
+      "inversedBy": "Addons"
+    },
+    "Fragrance": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fragrance.fragrance"
     }
   }
 }

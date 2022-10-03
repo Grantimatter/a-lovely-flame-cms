@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "product_type"
-    },
     "Title": {
       "type": "string"
     },
@@ -30,6 +24,36 @@
     },
     "SortOrder": {
       "type": "integer"
+    },
+    "WhyLove": {
+      "type": "richtext"
+    },
+    "Usage": {
+      "type": "richtext"
+    },
+    "Ingredients": {
+      "type": "richtext"
+    },
+    "Products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "ProductType"
+    },
+    "Addons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "ParentProduct"
+    },
+    "Fragrances": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::fragrance.fragrance",
+      "inversedBy": "ProductTypes"
+    },
+    "Price": {
+      "type": "decimal"
     }
   }
 }

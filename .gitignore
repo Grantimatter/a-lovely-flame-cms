@@ -115,3 +115,5 @@ exports
 build
 .strapi-updater.json
 docker-compose.yml
+*.env
+.env copy.development

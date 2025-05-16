@@ -1,57 +1,134 @@
-# 🚀 Getting started with Strapi
+# **A Lovely Flame Content Management System**
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html) (CLI) which lets you scaffold and manage your project in seconds.
+This repository contains the Content Management System (CMS) for A Lovely Flame, built using the Strapi headless CMS framework.
 
-### `develop`
+## **Project Description**
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-develop)
+This project serves as the back-end content management system for the A Lovely Flame website/application. It provides a flexible and extensible platform for managing various types of content, including products, fragrances, blog posts, FAQs, and more.
 
+## **Getting Started**
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### **Prerequisites**
+
+You need to have Node.js and either npm or yarn installed on your system.
+
+* Node.js (\>=12.x.x \<=16.x.x)  
+* npm (\>=6.0.0) or yarn
+
+### **Installation**
+
+1. Clone the repository:  
+```sh
+   git clone https://github.com/Grantimatter/a-lovely-flame-cms  
+   cd a-lovely-flame-cms
 ```
-npm run develop
-# or
-yarn develop
+
+2. Install the dependencies:  
+```sh
+   npm install  
+   # or  
+   yarn install
 ```
 
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-start)
-
-```
-npm run start
-# or
-yarn start
+3. Create your environment files. Copy the example files and update them with your specific configurations (database credentials, API keys, etc.).  
+```sh
+   cp config/env/development/database.js.example config/env/development/database.js  
+   cp config/env/development/server.js.example config/env/development/server.js  
+   # Do the same for production if needed
 ```
 
-### `build`
+   *Note: Based on the package.json, the development environment uses SQLite, and production uses PostgreSQL. Ensure you have the necessary database set up.*
 
-Build your admin panel. [Learn more](https://docs.strapi.io/developer-docs/latest/developer-resources/cli/CLI.html#strapi-build)
+### **Running the Application**
 
+Use the Strapi CLI commands via npm or yarn scripts:
+
+* **Development Mode (with autoReload):**  
+```sh
+  npm run develop  
+  # or  
+  yarn develop
 ```
-npm run build
-# or
+
+* **Production Mode (no autoReload):**
+```sh
+  npm run start  
+  # or  
+  yarn start
+```
+
+### **Building the Admin Panel**
+
+To build the Strapi admin panel for production:
+```sh
+npm run build  
+# or  
 yarn build
 ```
 
-## ⚙️ Deployment
+For Windows environments, you might use:  
+`npm run build:win`
 
-Strapi gives you many possible deployment options for your project. Find the one that suits you on the [deployment section of the documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html).
+## **Deployment**
 
-## 📚 Learn more
+Strapi offers various deployment options. Refer to the [Strapi Deployment Documentation](https://docs.strapi.io/developer-docs/latest/setup-deployment-guides/deployment.html) for detailed guides on deploying your application to different platforms.  
+This project is configured with production database settings for PostgreSQL, suggesting a potential deployment environment like Heroku (based on the MY\_HEROKU\_URL environment variable in config/env/production/server.js).
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://docs.strapi.io) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+## **Technologies and Dependencies**
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+* **Framework:** Strapi v4.3.4  
+* **Backend:** Node.js  
+* **Package Manager:** npm or yarn  
+* **Databases:**  
+  * SQLite (Development)  
+  * PostgreSQL (Production)  
+* **Key Plugins & Providers:**  
+  * @strapi/plugin-i18n: Internationalization (i18n) plugin.  
+  * @strapi/plugin-users-permissions: Handles user authentication and permissions.  
+  * @strapi/provider-email-sendgrid: Email provider using SendGrid.  
+  * @strapi/provider-upload-cloudinary: File upload provider using Cloudinary.  
+  * strapi-stripe: Integration for Stripe payments.  
+* **Other Dependencies:** better-sqlite3, pg, pg-connection-string, cross-env.
 
-## ✨ Community
+## **API Structure**
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+The CMS defines the following API endpoints and content types:
 
----
+* `/api/blogs`: Manage blog posts.  
+* `/api/bundles`: Manage product bundles.  
+* `/api/carts`: Manage user shopping carts.  
+* `/api/faqs`: Manage frequently asked questions.  
+* `/api/fragrances`: Manage fragrance details and scent notes.  
+* `/api/our-story`: Manage the "Our Story" single page content.  
+* `/api/products`: Manage individual product details.  
+* `/api/product-types`: Manage categories or types of products.  
+* `/api/scent-notes`: Manage individual scent notes.
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+Each API directory typically contains content-types, controllers, routes, and services directories defining the structure and logic for that specific content type.
+
+## **Project Structure Overview**
+```
+grantimatter-a-lovely-flame-cms/  
+├── config/             # Strapi configuration files  
+├── database/           # Database related files (migrations)  
+├── public/             # Publicly accessible assets  
+├── src/                # Source code for custom APIs and extensions  
+│   ├── api/            # Custom API endpoints (blog, product, etc.)  
+│   ├── extensions/     # Overrides or additions to core Strapi plugins (strapi-stripe, users-permissions)  
+│   └── index.js        # Strapi lifecycle hooks (register, bootstrap)  
+├── .editorconfig       # Editor configuration  
+├── .eslintignore       # ESLint ignore rules  
+├── .eslintrc           # ESLint configuration  
+├── package.json        # Project dependencies and scripts  
+└── README.md           # This file
+```
+## **Learn More**
+
+* [Strapi Resource Center](https://strapi.io/resource-center)  
+* [Official Strapi Documentation](https://docs.strapi.io)  
+* [Strapi Tutorials](https://strapi.io/tutorials)  
+* [Strapi Blog](https://strapi.io/blog)  
+* [Strapi Changelog](https://strapi.io/changelog)  
+* [Strapi GitHub Repository](https://github.com/strapi/strapi)
